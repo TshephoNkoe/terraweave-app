@@ -1,0 +1,103 @@
+-- Users table
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    name VARCHAR(255),
+    organization VARCHAR(255),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    last_login DATETIME
+);
+
+-- User locations for personalized data
+CREATE TABLE user_locations (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    location_name VARCHAR(255),
+    latitude DECIMAL(10, 8),
+    longitude DECIMAL(11, 8),
+    is_primary BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- Climate data cache
+CREATE TABLE climate_data (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    location_name VARCHAR(255),
+    data_type VARCHAR(50),
+    year INTEGER,
+    value DECIMAL(10, 4),
+    unit VARCHAR(20),
+    source VARCHAR(100),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- City data for Global Pulse
+CREATE TABLE city_data (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    city_name VARCHAR(255),
+    country VARCHAR(255),
+    current_temp DECIMAL(5, 2),
+    historical_avg_temp DECIMAL(5, 2),
+    aqi INTEGER,
+    vegetation_change DECIMAL(5, 2),
+    precipitation_change DECIMAL(5, 2),
+    last_updated DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Action recommendations
+CREATE TABLE action_recommendations (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    location_type VARCHAR(50),
+    climate_issue VARCHAR(100),
+    recommendation TEXT,
+    impact_co2 DECIMAL(10, 2),
+    difficulty_level VARCHAR(20),
+    estimated_cost VARCHAR(50)
+);
+
+-- Energy plant data
+CREATE TABLE energy_plants (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    plant_name VARCHAR(255),
+    plant_type VARCHAR(50),
+    capacity_mw DECIMAL(10, 2),
+    co2_emissions DECIMAL(12, 2),
+    population_impact INTEGER,
+    location VARCHAR(255),
+    latitude DECIMAL(10, 8),
+    longitude DECIMAL(11, 8)
+);
+
+-- User actions tracking
+CREATE TABLE user_actions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    recommendation_id INTEGER,
+    action_taken BOOLEAN DEFAULT FALSE,
+    date_completed DATETIME,
+    impact_co2 DECIMAL(10, 2),
+    notes TEXT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (recommendation_id) REFERENCES action_recommendations(id)
+);
+
+-- Insert sample data
+INSERT INTO city_data (city_name, country, current_temp, historical_avg_temp, aqi, vegetation_change, precipitation_change) VALUES
+('Pretoria', 'South Africa', 32.0, 28.0, 85, -12.0, -50.0),
+('Moscow', 'Russia', 18.0, 16.0, 45, 5.0, 20.0),
+('Tokyo', 'Japan', 25.0, 24.0, 65, -3.0, -10.0),
+('Lagos', 'Nigeria', 35.0, 32.0, 95, -8.0, -30.0),
+('London', 'UK', 15.0, 14.0, 55, 2.0, 15.0);
+
+INSERT INTO action_recommendations (location_type, climate_issue, recommendation, impact_co2, difficulty_level, estimated_cost) VALUES
+('urban', 'heat_island', 'Plant native trees in urban areas', 50.0, 'easy', 'low'),
+('urban', 'air_quality', 'Use public transportation 2+ days/week', 800.0, 'medium', 'medium'),
+('residential', 'energy_use', 'Switch to LED lighting', 1200.0, 'easy', 'low'),
+('residential', 'energy_use', 'Install solar panels', 3000.0, 'hard', 'high'),
+('corporate', 'carbon_footprint', 'Implement telecommuting policies', 1500.0, 'medium', 'low');
+
+INSERT INTO energy_plants (plant_name, plant_type, capacity_mw, co2_emissions, population_impact, location) VALUES
+('Kendal Power Station', 'Coal', 4116.0, 18200000.0, 2100000, 'Mpumalanga'),
+('Medupi Power Station', 'Coal', 4764.0, 21500000.0, 2800000, 'Limpopo'),
+('Koeberg Nuclear', 'Nuclear', 1860.0, 0.0, 0, 'Western Cape');

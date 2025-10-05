@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - TerraWeave+</title>
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="dashboard-nav">
+        <div class="nav-brand">
+            <i class="fas fa-globe-americas"></i>
+            <span>TerraWeave+</span>
+            <span class="nav-badge">LIVE</span>
+        </div>
+        
+        <div class="nav-modules">
+            <a href="#time-lens" class="nav-module active" data-module="time-lens">
+                <i class="fas fa-clock-rotate-left"></i>
+                Time Lens
+            </a>
+            <a href="#global-pulse" class="nav-module" data-module="global-pulse">
+                <i class="fas fa-heart-pulse"></i>
+                Global Pulse
+            </a>
+            <a href="#action-hub" class="nav-module" data-module="action-hub">
+                <i class="fas fa-bolt"></i>
+                Action Hub
+            </a>
+        </div>
+
+        <div class="nav-user">
+            <div class="user-menu">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=NASA" alt="User" class="user-avatar">
+                <span class="user-name">Mission Specialist</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard -->
+    <main class="dashboard-main">
+        <!-- Time Lens Module -->
+        <section id="time-lens" class="module active">
+            <div class="module-header">
+                <h1><i class="fas fa-clock-rotate-left"></i> Time Lens</h1>
+                <p>Explore decades of Earth observation data</p>
+            </div>
+
+            <div class="control-panel">
+                <div class="location-selector">
+                    <select id="locationSelect">
+                        <option value="pretoria">Pretoria, South Africa</option>
+                        <option value="moscow">Moscow, Russia</option>
+                        <option value="tokyo">Tokyo, Japan</option>
+                        <option value="lagos">Lagos, Nigeria</option>
+                        <option value="london">London, UK</option>
+                    </select>
+                </div>
+                <div class="timeline-controls">
+                    <input type="range" id="yearSlider" min="1984" max="2024" value="2024" class="timeline-slider">
+                    <div class="year-display">
+                        <span id="currentYear">2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visualization-grid">
+<!-- Replace the existing map-container div with this: -->
+            <div class="map-container">
+                <div id="googleMap" style="height: 100%; width: 100%;"></div>
+                <div class="map-controls">
+                    <div class="control-group">
+                        <button id="toggleGlobe" class="control-btn">
+                            <i class="fas fa-globe"></i>
+                            Switch to 3D Globe
+                        </button>
+                        <button id="resetView" class="control-btn">
+                            <i class="fas fa-crosshairs"></i>
+                            Reset View
+                        </button>
+                    </div>
+                    <div class="api-key-input">
+                        <label for="googleApiKey">Google API Key:</label>
+                        <input type="password" id="googleApiKey" placeholder="Enter your Google API key">
+                        <button id="saveApiKey" class="control-btn">Save Key</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Global Pulse Module -->
+        <section id="global-pulse" class="module">
+            <div class="module-header">
+                <h1><i class="fas fa-heart-pulse"></i> Global Pulse</h1>
+                <p>Real-time climate monitoring across global cities</p>
+            </div>
+
+            <div class="cities-grid">
+                <!-- City cards will be populated by JavaScript -->
+            </div>
+
+            <div class="climate-comparison">
+                <div class="comparison-header">
+                    <h3>Climate Anomaly Analysis</h3>
+                    <div class="ai-insight">
+                        <i class="fas fa-robot"></i>
+                        <span>AI-Generated Insight</span>
+                    </div>
+                </div>
+                <div class="comparison-content" id="aiInsight">
+                    Loading climate analysis...
+                </div>
+            </div>
+        </section>
+
+        <!-- Action Hub Module -->
+        <section id="action-hub" class="module">
+            <div class="module-header">
+                <h1><i class="fas fa-bolt"></i> Action Hub</h1>
+                <p>Turn insights into meaningful climate action</p>
+            </div>
+
+            <div class="action-tabs">
+                <button class="action-tab active" data-tab="personal">Personal Action</button>
+                <button class="action-tab" data-tab="corporate">Corporate Solutions</button>
+                <button class="action-tab" data-tab="eskom">Eskom Analysis</button>
+            </div>
+
+            <div class="tab-content">
+                <!-- Personal Actions -->
+                <div class="tab-pane active" id="personal-actions">
+                    <div class="action-recommendations">
+                        <h3>Your Personalized Climate Action Plan</h3>
+                        <div class="recommendation-cards" id="personalRecommendations">
+                            <!-- Filled by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Corporate Solutions -->
+                <div class="tab-pane" id="corporate-solutions">
+                    <div class="energy-dashboard">
+                        <h3>Energy Transition Analytics</h3>
+                        <div class="energy-metrics">
+                            <div class="energy-metric">
+                                <span class="value">2.1M</span>
+                                <span class="label">People Impacted</span>
+                            </div>
+                            <div class="energy-metric">
+                                <span class="value">8.3M tons</span>
+                                <span class="label">CO2 Reduction Potential</span>
+                            </div>
+                            <div class="energy-metric">
+                                <span class="value">5GW</span>
+                                <span class="label">Solar Capacity Needed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eskom Analysis -->
+                <div class="tab-pane" id="eskom-analysis">
+                    <div class="eskom-dashboard">
+                        <h3>Eskom Power Plant Impact Analysis</h3>
+                        <div class="power-plant-grid">
+                            <!-- Power plant cards will be populated by JavaScript -->
+                        </div>
+                        <div class="transition-recommendations">
+                            <h4>Energy Transition Recommendations</h4>
+                            <div id="transitionRecommendations">
+                                <!-- Filled by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/charts.js"></script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TerraWeave+ - NASA Space Hackathon South Africa</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Animated Space Background -->
+    <div class="space-background">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        <div class="clouds"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-globe-americas"></i>
+                <span>TerraWeave+</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#demo" class="nav-link">Demo</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="login.html" class="nav-link login-btn">Mission Control</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">NASA SPACE HACKATHON 2025</div>
+            <h1 class="hero-title">
+                <span class="title-line">From Your Backyard</span>
+                <span class="title-line">To The Universe</span>
+            </h1>
+            <p class="hero-subtitle">
+                Transform NASA satellite data into actionable insights. See Earth's changes, understand climate impacts, and take meaningful action.
+            </p>
+            <div class="hero-buttons">
+                <a href="login.html" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    Launch App
+                </a>
+                <a href="#demo" class="btn btn-secondary">
+                    <i class="fas fa-play-circle"></i>
+                    Watch Demo
+                </a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="globe-container">
+                <div class="animated-globe">
+                    <div class="globe"></div>
+                    <div class="orbit"></div>
+                    <div class="satellite"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Mission Modules</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock-rotate-left"></i>
+                    </div>
+                    <h3>Time Lens</h3>
+                    <p>Travel through decades of satellite data. Watch glaciers retreat, cities grow, and forests transform with stunning visualizations.</p>
+                    <ul>
+                        <li>Landsat Archive (1984-Present)</li>
+                        <li>Glacier & Ice Cap Tracking</li>
+                        <li>Urban Development Analysis</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart-pulse"></i>
+                    </div>
+                    <h3>Global Pulse</h3>
+                    <p>Real-time climate monitoring across 10 global cities. Compare current conditions with historical data using AI-powered insights.</p>
+                    <ul>
+                        <li>Live Weather vs Climate Analysis</li>
+                        <li>AI-Generated Climate Stories</li>
+                        <li>Carbon Footprint Visualization</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Action Hub</h3>
+                    <p>Personalized climate action plans. Get specific recommendations for your location and track your impact over time.</p>
+                    <ul>
+                        <li>Personal Carbon Reduction</li>
+                        <li>Corporate Sustainability Tools</li>
+                        <li>Energy Transition Analytics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <h2 class="section-title">Live Mission Demo</h2>
+            <div class="demo-container">
+                <div class="demo-card">
+                    <div class="demo-header">
+                        <h4>Eskom Energy Transition Analysis</h4>
+                        <span class="demo-badge">LIVE</span>
+                    </div>
+                    <div class="demo-content">
+                        <div class="metric-grid">
+                            <div class="metric">
+                                <span class="metric-value">42.7M</span>
+                                <span class="metric-label">People Served</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">78%</span>
+                                <span class="metric-label">Coal Power</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">2.1M</span>
+                                <span class="metric-label">Health Impact</span>
+                            </div>
+                        </div>
+                        <div class="recommendation">
+                            <h5>AI Recommendation:</h5>
+                            <p>"Deploy 5GW solar capacity in Northern Cape to reduce coal dependency by 15% and save 8.3M tons CO2 annually."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-globe-americas"></i>
+                    <span>TerraWeave+</span>
+                </div>
+                <p>Powered by NASA Earth Data • Built by Msebetsi Solutions Pty Ltd • Tshepho Nkoe</p>
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

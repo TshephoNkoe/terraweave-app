@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Control - TerraWeave+</title>
+    <link rel="stylesheet" href="styles/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="auth-body">
+    <div class="space-background">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+    </div>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="auth-logo">
+                    <i class="fas fa-satellite"></i>
+                    <h1>Mission Control</h1>
+                </div>
+                <p>Access TerraWeave+ Dashboard</p>
+            </div>
+
+            <form class="auth-form" id="loginForm">
+                <div class="input-group">
+                    <label for="email">NASA Email</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-user-astronaut"></i>
+                        <input type="email" id="email" name="email" placeholder="enterprise@nasa.gov" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Security Key</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-key"></i>
+                        <input type="password" id="password" name="password" placeholder="••••••••" required>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox">
+                        <input type="checkbox" name="remember">
+                        <span class="checkmark"></span>
+                        Remember this device
+                    </label>
+                    <a href="#" class="forgot-link">Lost Key?</a>
+                </div>
+
+                <button type="submit" class="auth-btn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Initiate Sequence
+                </button>
+
+                <div class="auth-divider">
+                    <span>OR</span>
+                </div>
+
+                <button type="button" class="auth-btn secondary">
+                    <i class="fas fa-user-plus"></i>
+                    Request Clearance
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <p>New to mission? <a href="index.html">Return to HQ</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>
